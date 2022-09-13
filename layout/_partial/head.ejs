@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="<%= config.author %>">
+    <% if (config.description) { %>
+    <meta name="description" content="<%= config.description %>">
+    <% } %>
+    <% let title = [config.title] %>
+    <% if (page.tag) {
+        title.unshift(`${__('tags')}: ${page.tag}`)
+    } %>
+    <% if (page.category) {
+        title.unshift(`${__('categories')}: ${page.category}`)
+    }%>
+    <% if (page.archive) {
+        title.unshift(`${__('archive_a')}`)
+    }%>
+    <% if (page.title) {
+        title.unshift(`${page.title}`)
+    }%>
+    <title><%= title.join(' | ') %></title>
+	<link rel="shortcut icon" type="image/x-icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="<%- config.url %>" rel="prefetch" />
+
+    <%- css(['css/bootstrap.min.css', 'css/aos.css' , 'css/style.css']) %>
+    <%- js('js/jquery.min.js') %>
+    <%- js('js/bootstrap.min.js') %>
+    <%- js('js/aos.js') %>
+    <%- js('js/highslide/highslide-full.min.js') %>
+    <%- css('js/highslide/highslide.css') %>
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/<%= theme.xs_bg_image %>');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: '<%= theme.leancloud.appid %>',
+        appKey: '<%= theme.leancloud.appkey %>'
+      })
+    </script>
+    <% } %>
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '<%- url_for('imgs/' + theme.author_image) %>'
+        var previews = '<%= theme.default_preview %>'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '<%- url_for('imgs/preview') %>' + previews[i]
+        }
+      }
+    </script>-->
+</head>

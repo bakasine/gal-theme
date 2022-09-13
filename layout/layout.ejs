@@ -1,0 +1,116 @@
+<%- partial('_partial/head') %>
+<body>
+    <!-- 背景轮播图功能 -->
+    <%- partial('_partial/slideshow.ejs') %>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    <% if(theme.open_oni === true) { %>
+    <%- partial('_partial/oni.ejs') %>
+    <% } %>
+    <%- partial('_partial/header') %>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    <%- body %>
+                </div>
+                <%- partial('_partial/sidebar') %>
+            </div>
+        </div>
+    </div>
+    <%- partial('_partial/footer') %>
+    <% if(theme.use_l2d === true) { %>
+    <script src="/live2d/autoload.js"></script>
+    <% } %>
+    <script src="/js/clipboard/clipboard.min.js"></script>
+    <script src="/js/custom.js"></script>
+    
+</body>
+<%- js(['js/activate-power-mode.js']) %>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = '<%= theme.power_mode.colorful %>';    // make power mode colorful
+	POWERMODE.shake = '<%= theme.power_mode.colorful %>';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '<%- theme.slide_background.use_url ? theme.slide_background.prefix : url_for(`imgs/${theme.slide_background.prefix}`) %>',
+      ext: '<%- theme.slide_background.ext %>',
+      maxCount: '<%- theme.slide_background.max_count %>'
+    }
+</script>
+<%- js(['js/hs.js', 'js/blog.js']) %>
+<% if(theme.open_oni === true) { %>
+<%- js('js/oni.js') %>
+<% } %>
+<% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
+<script>
+    window.hot_posts_count = '<%= config.per_page %>'
+    // window.use_leancloud = '<%= !!(theme.leancloud.appid && theme.leancloud.appkey) %>'
+</script>
+<%- js('js/comment/leancloud.js') %>
+<% } %>
+<% if( theme.use_comment === true && (is_home() || page.comments === true )){ %>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = '<%= page.date %>'
+      window.commentConfig.owner = '<%= theme.comment.gitment.owner %>'
+      window.commentConfig.repo = '<%= theme.comment.gitment.repo %>'
+      window.commentConfig.client_id = '<%= theme.comment.gitment.oauth.client_id %>'
+      window.commentConfig.client_secret = '<%= theme.comment.gitment.oauth.client_secret %>'
+      window.commentConfig.redirect_uri = '<%= theme.comment.gitment.oauth.redirect_uri %>'
+      window.commentConfig.proxy = '<%= theme.comment.gitalk.proxy %>'
+    } else {
+      window.commentConfig = {
+      	id: '<%= page.date %>',
+        owner: '<%= theme.comment.gitment.owner %>',
+        repo: '<%= theme.comment.gitment.repo %>',
+        client_id: '<%= theme.comment.gitment.oauth.client_id %>',
+        client_secret: '<%= theme.comment.gitment.oauth.client_secret %>',
+        redirect_uri: '<%= theme.comment.gitment.oauth.redirect_uri %>',
+        proxy: '<%= theme.comment.gitalk.proxy %>'
+      }
+    }
+</script>
+  <% if(theme.comment.gitalk.change_to_gitalk === false) { %>
+    <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+    <%- js('js/comment/gitment.js') %>
+  <% } else {%>
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <%- js('js/comment/gitalk.js') %>
+  <% } %>
+<% } %>
+</html>
