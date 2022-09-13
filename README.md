@@ -11,11 +11,11 @@
 
 1. 添加markdown的列表格式
 
-[列表格式](./list.png)
+![列表格式](./list.png)
 
 2. 添加mac代码块格式(通过配置的mac_style进行开关),添加代码块复制功能
 
-[mac代码块](./mac.png)
+![mac代码块](./mac.png)
 
 3. 还有一些小bug的修复
 
@@ -51,5 +51,5 @@ gal-theme安装问题
 
 [创建](https://github.com/settings/applications/new)
 
-[配置](./comment.png)
+![配置](./comment.png)
 
