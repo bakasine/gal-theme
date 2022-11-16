@@ -17,28 +17,28 @@ programmer_mode: false
 # 导航菜单
 menu:
   # index
-  - title: 首页
+  - title: " 首页"
     # 参照font-awesome官网的icon, 取后面一段(比如用fa-star这个图标, 那么这里的icon就填star)
     icon: home
     url: /
   # archives
-  - title: 归档
+  - title: " 首页"
     icon: archive
     url: archives
   # categories
-  - title: 分类
+  - title: " 首页"
     icon: list
     url: categories
     dropdown: 3 #dropdown为下拉菜单出现的项目最大数目(只限于tags和categorys)
     # 如果不想显示下拉菜单, 则不要填写, 即dropdown:
     # 具体效果可以看https://myau.moe
   # tags
-  - title: 标签
+  - title: " 首页"
     icon: tags
     url: tags
     dropdown: 3
   # about, 这个实际上是自定义page, 后面的自定义page参照about样式
-  - title: 关于我
+  - title: " 首页"
     icon: user
     url: about
 
@@ -82,11 +82,7 @@ friend_links:
 # 个人链接配置, 要先开启上面的links
 links:
   - name: Github
-    link: https://github.com/ZEROKISEKI/
-  - name: Coding
-    link: https://coding.net/u/SORA1
-  - name: 知乎
-    link: https://www.zhihu.com/people/aonosora/activities
+    link: https://github.com/hentai121
 
 
 # 是否使用公告
@@ -103,7 +99,7 @@ use_issue: true
 # monokai_sublime
 # atom-one-dark
 # darcula
-highlight_theme: atom-one-dark
+highlight_theme: railscasts
 
 # 指定是否开启mac风格代码块 on/off
 mac_style: on
