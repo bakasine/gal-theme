@@ -22,23 +22,23 @@ menu:
     icon: home
     url: /
   # archives
-  - title: " 首页"
+  - title: " 归档"
     icon: archive
     url: archives
   # categories
-  - title: " 首页"
+  - title: " 分类"
     icon: list
     url: categories
     dropdown: 3 #dropdown为下拉菜单出现的项目最大数目(只限于tags和categorys)
     # 如果不想显示下拉菜单, 则不要填写, 即dropdown:
     # 具体效果可以看https://myau.moe
   # tags
-  - title: " 首页"
+  - title: " 标签"
     icon: tags
     url: tags
     dropdown: 3
   # about, 这个实际上是自定义page, 后面的自定义page参照about样式
-  - title: " 首页"
+  - title: " 关于我"
     icon: user
     url: about
 
