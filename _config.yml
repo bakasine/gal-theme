@@ -59,6 +59,8 @@ default_preview:
   - preview9.jpg
   - preview10.jpg
   - preview11.jpg
+  - preview12.jpg
+  - preview13.jpg
 
 # 侧边栏
 sidebar:
@@ -72,12 +74,12 @@ sidebar:
 
 # 友情链接配置, 要先开启上面的friend_links
 friend_links:
-  - name: KDays Forum
-    link: http://kdays.net/days/
+  - name: 二次元导航
+    link: http://www.2cydh.com/
   - name: 绅士导航♂
     link: http://www.gal123.com/
   - name: 萌导航
-    link: http://www.moe123.com/
+    link: http://www.moe123.net/
 
 # 个人链接配置, 要先开启上面的links
 links:
