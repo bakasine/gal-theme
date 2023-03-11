@@ -38,9 +38,10 @@ menu:
     url: tags
     dropdown: 3
   # about, 这个实际上是自定义page, 后面的自定义page参照about样式
-  - title: " 关于我"
+  - title: " 油炸小龙虾小店"
     icon: user
-    url: about
+    # url: about
+    url: http://0012100.xyz
 
 # 每篇文章的preview默认图片
 # 必填项(除非你每篇文章的front-matter都设置了preview属性)
