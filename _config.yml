@@ -18,6 +18,7 @@ programmer_mode: false
 menu:
   # index
   - title: " 首页"
+    # https://fontawesome.com/v4/icons/
     # 参照font-awesome官网的icon, 取后面一段(比如用fa-star这个图标, 那么这里的icon就填star)
     icon: home
     url: /
@@ -26,20 +27,20 @@ menu:
     icon: archive
     url: archives
   # categories
-  - title: " 分类"
-    icon: list
-    url: categories
-    dropdown: 3 #dropdown为下拉菜单出现的项目最大数目(只限于tags和categorys)
+  #- title: " 分类"
+  #  icon: list
+  #  url: categories
+  #  dropdown: 3 #dropdown为下拉菜单出现的项目最大数目(只限于tags和categorys)
     # 如果不想显示下拉菜单, 则不要填写, 即dropdown:
     # 具体效果可以看https://myau.moe
   # tags
-  - title: " 标签"
-    icon: tags
-    url: tags
-    dropdown: 3
+  #- title: " 标签"
+  #  icon: tags
+  #  url: tags
+  #  dropdown: 3
   # about, 这个实际上是自定义page, 后面的自定义page参照about样式
   - title: " 油炸小龙虾小店"
-    icon: user
+    icon: shopping-cart
     # url: about
     url: http://0012100.xyz
 
