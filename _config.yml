@@ -42,7 +42,7 @@ menu:
   - title: " 油炸小龙虾小店"
     icon: shopping-cart
     # url: about
-    url: http://0012100.xyz
+    url: /shop
 
 # 每篇文章的preview默认图片
 # 必填项(除非你每篇文章的front-matter都设置了preview属性)
