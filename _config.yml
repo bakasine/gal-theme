@@ -39,10 +39,13 @@ menu:
   #  url: tags
   #  dropdown: 3
   # about, 这个实际上是自定义page, 后面的自定义page参照about样式
+  - title: " 赞助我"
+    icon: thumbs-o-up
+    url: about
   - title: " 油炸小龙虾小店"
     icon: shopping-cart
     # url: about
-    url: /shop
+    url: /shop 
 
 # 每篇文章的preview默认图片
 # 必填项(除非你每篇文章的front-matter都设置了preview属性)
@@ -76,17 +79,17 @@ sidebar:
 
 # 友情链接配置, 要先开启上面的friend_links
 friend_links:
-  - name: 二次元导航
-    link: http://www.2cydh.com/
-  - name: 绅士导航♂
-    link: http://www.gal123.com/
-  - name: 萌导航
-    link: http://www.moe123.net/
+  - name: 小站
+    link: https://bakasine.com/
+  - name: 博客
+    link: https://blog.bakasine.com/
+  - name: xlog
+    link: https://genshin.xlog.app/
 
 # 个人链接配置, 要先开启上面的links
 links:
   - name: Github
-    link: https://github.com/hentai121
+    link: https://github.com/bakahentailolicon
 
 
 # 是否使用公告
@@ -99,13 +102,13 @@ use_issue: true
 # 指定代码高亮风格
 # 目前支持以下选择
 # github
-# railscasts
+# 默认 railscasts 
 # monokai_sublime
 # atom-one-dark
 # darcula
-highlight_theme: railscasts
+highlight_theme: github
 
-# 指定是否开启mac风格代码块 on/off
+# 指定是否开启mac风格代码块 默认开启 off关闭
 mac_style: on
 
 # 背景图功能
@@ -158,11 +161,11 @@ leancloud:
 # 如果不用的话要把下面的use_comment设置为false
 comment:
   gitment:
-      owner: # 必填项, 你的GitHub ID
-      repo: # 必填项  你的存储评论的repo
+      owner:  # 必填项, 你的GitHub ID
+      repo:  # 必填项  你的存储评论的repo
       oauth:
         client_id:  # 必填项
-        client_secret: # 必填项
+        client_secret:  # 必填项
         redirect_uri: # 可以填也可以不填
   # 是否改成gitalk, gitment的必填项也是要填的
   gitalk:
@@ -172,12 +175,7 @@ comment:
     proxy: https://cors-server-ecru.vercel.app/github_access_token
 
 # 是否使用评论系统
-use_comment: false
-
-node_sass:
-  outputStyle: compressed
-  precision: 5
-  sourceComments: false
+use_comment: true
 
 # 是否添加live2d
 # 项目地址: https://github.com/stevenjoezhang/live2d-widget

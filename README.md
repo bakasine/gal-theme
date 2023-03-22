@@ -2,9 +2,25 @@
 
 在 [fnsflm/hexo-theme-gal](https://github.com/fnsflm/hexo-theme-gal) 修改了一些内容, 原项目是[忧郁的弟弟](https://www.kkgal.com/)网站主题WordPress的hexo移植版本
 
+# Usage
+
+``` bash
+// 使用git clone到你hexo博客的theme目录下 或者直接下载解压, 然后回到blog目录修改_config.yml, 把theme的值改成 gal-theme
+cd blog/theme
+git clone git@github.com:bakahentailolicon/gal-theme.git
+
+npm install --save hexo-renderer-sass-next
+
+npm un hexo-renderer-marked --save
+npm i hexo-renderer-markdown-it --save
+```
+
 详细说明和使用方法见[wiki](https://github.com/fnsflm/hexo-theme-gal/wiki)
 
-[个人站点](https://hentai121.github.io/)
+
+# Demo
+
+[个人站点](https://bakahentailolicon.github.io/)
 
 
 **更新:**
@@ -19,7 +35,9 @@
 
 3. 还有一些小bug的修复
 
-# 主题安装流程
+# 主题安装遇到的问题
+
+__以下问题出自sass这个组件,当使用hexo-renderer-sass-next的时候正常不会出现下面的情况__
 
 gal-theme安装问题
 

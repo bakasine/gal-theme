@@ -7,7 +7,6 @@
 $highlight_theme: hexo-theme-config('highlight_theme');
 $mac_style: hexo-theme-config('mac_style');
 
-@if $mac_style == on {
 figure {
   padding-top: 26px;
 }
@@ -23,6 +22,127 @@ figure::before {
   position: absolute;
   width: 12px;
 }
+.highlight {
+  background: #232323;
+  color: #e6e1dc;
+  
+  
+  pre {
+    background: #232323;
+    color: #e6e1dc;
+  }
+
+  .comment,
+  .quote {
+    color: #bc9458;
+    font-style: italic;
+  }
+
+  .keyword,
+  .selector-tag {
+    color: #c26230;
+  }
+
+  .string,
+  .number,
+  .regexp,
+  .variable,
+  .template-variable {
+    color: #a5c261;
+  }
+
+  .subst {
+    color: #519f50;
+  }
+
+  .tag,
+  .name {
+    color: #e8bf6a;
+  }
+
+  .type {
+    color: #da4939;
+  }
+
+
+  .symbol,
+  .bullet,
+  .built_in,
+  .builtin-name,
+  .attr,
+  .link {
+    color: #6d9cbe;
+  }
+
+  .params {
+    color: #d0d0ff;
+  }
+
+  .attribute {
+    color: #cda869;
+  }
+
+  .meta {
+    color: #9b859d;
+  }
+
+  .title,
+  .section {
+    color: #ffc66d;
+  }
+
+  .addition {
+    background-color: #144212;
+    color: #e6e1dc;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .deletion {
+    background-color: #600;
+    color: #e6e1dc;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .selector-class {
+    color: #9b703f;
+  }
+
+  .selector-id {
+    color: #8b98ab;
+  }
+
+  .emphasis {
+    font-style: italic;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
+
+  .link {
+    text-decoration: underline;
+  }
+
+}
+
+@if $mac_style == on {
+  figure {
+    padding-top: 26px;
+  }
+  // mac style
+  figure::before {
+    background: #fc625d;
+    border-radius: 50%;
+    content: "";
+    box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+    height: 12px;
+    left: 12px;
+    margin-top: -15px;
+    position: absolute;
+    width: 12px;
+  }
 }
 
 @if $highlight_theme == github {
