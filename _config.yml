@@ -39,13 +39,16 @@ menu:
   #  url: tags
   #  dropdown: 3
   # about, 这个实际上是自定义page, 后面的自定义page参照about样式
-  - title: " 赞助我"
-    icon: thumbs-o-up
-    url: about
-  - title: " 油炸小龙虾小店"
-    icon: shopping-cart
-    # url: about
-    url: /shop 
+  #- title: " 赞助我"
+  #  icon: thumbs-o-up
+  #  url: about
+  #- title: " 油炸小龙虾小店"
+  #  icon: shopping-cart
+  #  url: about
+  #  url: /shop 
+  - title: " 导航"
+    icon: link
+    url: links
 
 # 每篇文章的preview默认图片
 # 必填项(除非你每篇文章的front-matter都设置了preview属性)
@@ -80,16 +83,16 @@ sidebar:
 # 友情链接配置, 要先开启上面的friend_links
 friend_links:
   - name: 小站
-    link: https://bakasine.com/
+    link: https://bakasine.github.io/
   - name: 博客
-    link: https://blog.bakasine.com/
+    link: https://bakasine.github.io/
   - name: xlog
     link: https://genshin.xlog.app/
 
 # 个人链接配置, 要先开启上面的links
 links:
   - name: Github
-    link: https://github.com/bakahentailolicon
+    link: https://github.com/bakasine
 
 
 # 是否使用公告
