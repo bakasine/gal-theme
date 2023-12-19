@@ -21,6 +21,12 @@
     <% if(theme.use_l2d === true) { %>
     <script src="/live2d/autoload.js"></script>
     <% } %>
+    <% if(theme.aplayer === true) { %>
+    <link rel="stylesheet" href="/aplayer/APlayer.min.css">
+    <div id="aplayer"></div>
+    <script src="/aplayer/APlayer.min.js"></script>
+    <script src="/aplayer/list.js"></script>
+    <% } %>
     <script src="/js/clipboard/clipboard.min.js"></script>
     <script src="/js/custom.js"></script>
     
