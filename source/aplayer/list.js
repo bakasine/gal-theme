@@ -2,6 +2,7 @@ const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
     autoplay: false,
+    volume: 0.1,
     audio: [
         {
             name: '你很勇哦',
