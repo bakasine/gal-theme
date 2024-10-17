@@ -1,10 +1,11 @@
 {
     "name": "gal",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": true,
     "dependencies": {
+      "hexo-renderer-sass-next": "*",
       "hexo-renderer-ejs": "*",
       "hexo-renderer-stylus": "*",
-      "hexo-renderer-marked": "*"
+      "hexo-renderer-markdown-it": "*"
     }
   }
