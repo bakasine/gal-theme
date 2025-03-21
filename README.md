@@ -8,11 +8,7 @@
 // 使用git clone到你hexo博客的theme目录下 或者直接下载解压, 然后回到blog目录修改_config.yml, 把theme的值改成 gal-theme
 cd blog/theme
 git clone git@github.com:bakasine/gal-theme.git
-
-npm install --save hexo-renderer-sass-next
-
-npm un hexo-renderer-marked --save
-npm i hexo-renderer-markdown-it --save
+npm i --save
 ```
 
 详细说明和使用方法见[wiki](https://github.com/fnsflm/hexo-theme-gal/wiki)
