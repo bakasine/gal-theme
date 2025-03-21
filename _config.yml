@@ -26,6 +26,9 @@ menu:
   - title: " 归档"
     icon: archive
     url: archives
+  - title: " 导航"
+    icon: link
+    url: links
   # categories
   #- title: " 分类"
   #  icon: list
