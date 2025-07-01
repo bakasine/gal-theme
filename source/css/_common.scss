@@ -514,13 +514,9 @@ button.close {
 // markdown
 
 .content-article {
+  /* 恢复默认，移除自定义 blockquote 样式 */
 
   text-align: justify;
-
-  blockquote {
-    border-color: rgb(0, 191, 255);
-    background-color: rgba(255, 255, 255, 0.51);
-  }
 
   code {
     word-break: break-all;
@@ -576,7 +572,7 @@ button.close {
   ol li {
     position: relative;
     margin-bottom: 16px;
-    padding: 16px 24px;
+    padding: 16px 32px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -849,6 +845,10 @@ button.close {
 
   .btn-copy.copied .copy-text {
     color: #1a7f37;
+  }
+
+  blockquote, .content-article blockquote p, .content-article blockquote span, .content-article blockquote strong, .content-article blockquote em {
+    font-weight: bold !important;
   }
 }
 
