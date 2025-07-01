@@ -564,25 +564,165 @@ button.close {
     }
   }
 
+  /* 现代椭圆面板列表样式 */
   ul,
   ol {
-    border-left: 5px solid #eeeeee;
-    border-color: rgb(0, 191, 255);
-    background-color: rgba(255, 255, 255, 0.51);
-    padding: 20px 20px 10px 40px;
-    margin: 0 0 20px;
-  }
-
-  ul {
-    padding-left: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
   }
 
   ul li,
   ol li {
+    position: relative;
+    margin-bottom: 16px;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 4px 16px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(0, 0, 0, 0.8);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+  }
+
+  ul li:hover,
+  ol li:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 6px 20px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* 只保留嵌套子级li的圆点，父级li如果有ul或ol则不显示圆点 */
+  ul li:has(ul),
+  ul li:has(ol) {
+    position: relative;
+  }
+  ul li:has(ul)::before,
+  ul li:has(ol)::before {
+    display: none !important;
+  }
+
+  /* 无序列表标记 - 优雅的渐变圆点 */
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+    border-radius: 50%;
+    box-shadow: 
+      0 2px 8px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+  }
+
+  /* 有序列表标记 */
+  ol {
+    counter-reset: list-counter;
+  }
+
+  ol li {
+    counter-increment: list-counter;
+    padding-left: 48px;
+  }
+
+  ol li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #00bfff, #0080ff);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  /* 嵌套列表样式 */
+  ul ul,
+  ol ol,
+  ul ol,
+  ol ul {
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  ul ul li,
+  ol ol li,
+  ul ol li,
+  ol ul li {
+    margin-bottom: 8px;
+    padding: 12px 20px 12px 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     font-size: 14px;
-    font-weight: 300;
-    line-height: 1.25;
-    margin: 0 0 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  /* 二级嵌套列表标记 - 使用更具体的选择器 */
+  ul > li > ul > li::before {
+    left: 16px;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+  }
+
+  ol > li > ol > li::before {
+    left: 16px;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.8), rgba(0, 128, 255, 0.6));
+  }
+
+  /* 三级嵌套列表 */
+  ul > li > ul > li > ul > li,
+  ol > li > ol > li > ol > li,
+  ul > li > ol > li > ul > li,
+  ol > li > ul > li > ol > li {
+    padding-left: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    font-size: 13px;
+  }
+
+  ul > li > ul > li > ul > li::before {
+    left: 20px;
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+  }
+
+  ol > li > ol > li > ol > li::before {
+    left: 20px;
+    width: 16px;
+    height: 16px;
+    font-size: 9px;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(0, 128, 255, 0.4));
   }
 
   p {
@@ -710,8 +850,6 @@ button.close {
   .btn-copy.copied .copy-text {
     color: #1a7f37;
   }
-
-  /* 代码块复制按钮 */
 }
 
 @import "highlight";
