@@ -49,9 +49,6 @@ menu:
   #  icon: shopping-cart
   #  url: about
   #  url: /shop
-  - title: " 导航"
-    icon: link
-    url: links
 
 # 每篇文章的preview默认图片
 # 必填项(除非你每篇文章的front-matter都设置了preview属性)
