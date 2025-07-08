@@ -126,7 +126,7 @@ slide_background:
   # use_url: false情况下, 采用本地博客图片路径, 下面三个参数组合指向: source/imgs/slide/background(1~6).jpg
   prefix: slide/background
   ext: jpg
-  max_count: 6
+  max_count: 12
 
 # 是否开启欧尼酱功能
 open_oni: false
@@ -175,7 +175,7 @@ comment:
     proxy: https://cors-server-ecru.vercel.app/github_access_token
 
 # 是否使用评论系统
-use_comment: true
+use_comment: false
 
 # 是否添加 live2d
 # 项目地址: https://github.com/stevenjoezhang/live2d-widget
