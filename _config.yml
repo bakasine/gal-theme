@@ -185,3 +185,6 @@ use_l2d: false
 # 项目地址: https://github.com/DIYgod/APlayer
 # 前往 source/aplayer/list.js 文件添加音乐, 如果是本地音乐, 需要把音乐放入 music 下
 aplayer: true
+
+# google_analytics
+google_analytics: 
