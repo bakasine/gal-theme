@@ -15,12 +15,9 @@
         </div>
         <div class="tag-article">
             <% if(item.tags.data.length > 0) { %>
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                <% item.tags.data.forEach(function (tag, index) { %>
-                <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+                <% item.tags.data.forEach(function (tag) { %>
+                <span class="label label-gal"><i class="fa fa-tag"></i> <a href="<%- url_for(tag.path) %>"><%= tag.name %></a></span>
                 <% }) %>
-            </span>
             <% } %>
             <span class="label label-gal">
                 <i class="fa fa-calendar"></i> <%= item.date.format('YYYY-MM-DD') %>
@@ -45,9 +42,8 @@
             </p>
             <p>
                 <% if(item.tags.data.length > 0) { %>
-                <i class="fa fa-tags"></i>
-                <% item.tags.data.forEach(function (tag, index) { %>
-                <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+                <% item.tags.data.forEach(function (tag) { %>
+                <i class="fa fa-tag"></i> <a href="<%- url_for(tag.path) %>"><%= tag.name %></a>
                 <% }) %>
                 <% } %>
                 <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>

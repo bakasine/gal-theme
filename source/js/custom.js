@@ -33,4 +33,5 @@
         });
     }
     initCopyCode();
+    
 }(window, document);

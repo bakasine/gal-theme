@@ -15,10 +15,24 @@
             <%- partial('_partial/excerpt', { item: post, top: true }) %>
             <% })
         } %>
+     <% 
+        // prepare a shuffled pool of default previews to avoid repeated previews across posts
+        var previewPool = [];
+        if (theme.default_preview && theme.default_preview.length) {
+            previewPool = theme.default_preview.slice();
+            for (var i = previewPool.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var tmp = previewPool[i];
+                previewPool[i] = previewPool[j];
+                previewPool[j] = tmp;
+            }
+        }
+        var assignCounter = 0;
+     %>
      <% page.posts.filter(function (post) {
          return typeof post.top === 'undefined' || post.top === false
      }).forEach(function (post) { %>
-     <%- partial('_partial/excerpt', { item: post }) %>
+     <%- partial('_partial/excerpt', { item: post, previewPool: previewPool, previewAssignIndex: assignCounter++ }) %>
      <% }) %>
 </div>
 <%- partial('_partial/pagination', { page: page }) %>

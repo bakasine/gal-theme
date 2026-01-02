@@ -1,0 +1,199 @@
+// Markdown styling: headings, paragraphs, lists, code, blockquotes, tables, images
+
+ .content-article,
+ .article .content-article,
+ .article-body .content-article,
+ .article-content,
+ .post-content,
+ .markdown-body {
+  // base text
+  line-height: 1.75;
+  color: $body-color;
+  font-size: 16px;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  p {
+    margin: 0 0 1em;
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+
+  blockquote {
+    margin: 0 0 1em;
+    padding: 0.6em 1em;
+    color: lighten($body-color, 12%);
+    background: rgba(0,0,0,0.03);
+    border-left: 4px solid rgba(0,0,0,0.08);
+  }
+
+  pre, code {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  }
+
+  pre {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 1em;
+    border-radius: 6px;
+    overflow: auto;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0 0 1em;
+  }
+
+  code {
+    background: rgba(27,31,35,0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.95em;
+  }
+
+  table {
+    width: 100%;
+    margin: 0 0 1em;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: transparent;
+
+    // responsive wrapper handled by theme; ensure scroll if needed
+    max-width: 100%;
+
+    th, td {
+      padding: 0.75em 1em;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      color: $content-article-color;
+      vertical-align: top;
+    }
+
+    thead th {
+      background: rgba(0,0,0,0.03);
+      font-weight: 600;
+      color: $body-color;
+      text-align: left;
+      border-bottom: 2px solid rgba(0,0,0,0.08);
+    }
+
+    /* Remove harsh zebra; use subtle hover highlight */
+    tbody tr {
+      background: transparent;
+      transition: background 0.12s ease-in-out;
+    }
+
+    tbody tr:hover {
+      background: rgba(0,0,0,0.03);
+    }
+
+    /* Rounded corners for top/bottom rows */
+    thead th:first-child { border-top-left-radius: 6px; }
+    thead th:last-child { border-top-right-radius: 6px; }
+    tbody tr:last-child td:first-child { border-bottom-left-radius: 6px; }
+    tbody tr:last-child td:last-child { border-bottom-right-radius: 6px; }
+
+    /* Make tables scroll horizontally on small screens without breaking layout */
+    &.markdown-table-responsive {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.6em 0;
+  }
+
+  ul, ol {
+    margin: 0 0 1em 1.25em;
+  }
+
+  // Enhanced list styles
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul > li {
+    position: relative;
+    padding-left: 1.6em;
+    margin: 0.45em 0;
+  }
+
+  ul > li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 0.45em;
+    height: 0.45em;
+    background: $link-color;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.02) inset;
+  }
+
+  /* nested unordered list: smaller bullets */
+  ul ul > li:before {
+    width: 0.32em;
+    height: 0.32em;
+    top: 0.7em;
+    background: lighten($link-color, 10%);
+  }
+
+  ol {
+    counter-reset: gal-ol-counter;
+    padding-left: 0;
+  }
+
+  ol > li {
+    counter-increment: gal-ol-counter;
+    position: relative;
+    padding-left: 3.2em; /* more space so number pill isn't at the edge */
+    margin: 0.45em 0;
+  }
+
+  ol > li:before {
+    content: counter(gal-ol-counter);
+    position: absolute;
+    left: 0.4em; /* nudge right from the edge */
+    top: 50%;
+    transform: translateY(-50%);
+    color: $link-color;
+    font-weight: 700;
+    font-size: 0.95em;
+    background: transparent; /* blend into base background */
+    padding: 0.08em 0.5em;
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  /* nested ordered lists: smaller pill */
+  ol ol > li:before {
+    font-size: 0.85em;
+    padding: 0.06em 0.38em;
+    border-radius: 5px;
+  }
+
+  /* ensure content area has a little inner padding so list numbers never touch rounded container edges */
+  .content-article {
+    padding-left: 1.2em;
+  }
+  
+  // responsive tweaks
+  @media (max-width: 768px) {
+    font-size: 15px;
+    pre { font-size: 12px; }
+  }
+
+}

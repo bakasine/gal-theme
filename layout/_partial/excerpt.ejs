@@ -17,12 +17,9 @@
         </div>
         <div class="tag-article">
             <% if(item.tags.data.length > 0) { %>
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                <% item.tags.data.forEach(function (tag, index) { %>
-                <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+                <% item.tags.data.forEach(function (tag) { %>
+                <span class="label label-gal"><i class="fa fa-tag"></i> <a href="<%- url_for(tag.path) %>"><%= tag.name %></a></span>
                 <% }) %>
-            </span>
             <% } %>
             <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
             <span class="label label-gal">
@@ -39,8 +36,18 @@
             <div class="item">
                 <a href="<%- url_for(item.path) %>">
                     <div class="img">
-                        <% var num = Math.floor(Math.random() * theme.default_preview.length) %>
-                        <img src="<%- item.preview ? item.preview : (/https?:\/\//.test(theme.default_preview[num]) ? theme.default_preview[num] : url_for(`imgs/preview/${theme.default_preview[num]}`)) %>" alt="<%= item.title %>">
+                        <% 
+                           var num;
+                           if (typeof previewPool !== 'undefined' && previewPool.length > 0 && typeof previewAssignIndex !== 'undefined') {
+                               num = previewAssignIndex % previewPool.length;
+                           } else if (typeof theme.default_preview !== 'undefined' && theme.default_preview.length > 0) {
+                               num = Math.floor(Math.random() * theme.default_preview.length);
+                           } else {
+                               num = 0;
+                           }
+                           var previewSrc = item.preview ? item.preview : (/(https?:)?\/\//.test((typeof previewPool !== 'undefined' && previewPool.length > 0) ? previewPool[num] : theme.default_preview[num]) ? ((typeof previewPool !== 'undefined' && previewPool.length > 0) ? previewPool[num] : theme.default_preview[num]) : url_for(`imgs/preview/${(typeof previewPool !== 'undefined' && previewPool.length > 0) ? previewPool[num] : theme.default_preview[num]}`));
+                        %>
+                        <img src="<%- previewSrc %>" alt="<%= item.title %>">
                     </div>
                     <div class="info">
                         <%- item.preview_text ? markdown(item.preview_text) : item.excerpt %>
@@ -67,9 +74,8 @@
         <p></p>
         <center>
             <% if(item.tags.data.length > 0) { %>
-            <i class="fa fa-tags"></i>
-            <% item.tags.data.forEach(function (tag, index) { %>
-            <a href="<%- url_for(tag.path) %>"><%= tag.name %></a><%= index === item.tags.data.length - 1 ? '' : ', ' %>
+            <% item.tags.data.forEach(function (tag) { %>
+            <i class="fa fa-tag"></i> <a href="<%- url_for(tag.path) %>"><%= tag.name %></a>
             <% }) %>
             <% } %>
             <% if(theme.leancloud.appid && theme.leancloud.appkey) { %>
@@ -80,8 +86,18 @@
         <div class="alert alert-gal article-body content-article">
             <p style="text-align: center;">
                 <a href="<%- url_for(item.path) %>">
-                    <% var num = Math.floor(Math.random() * theme.default_preview.length) %>
-                    <img src="<%- item.preview ? item.preview : (/https?:\/\//.test(theme.default_preview[num]) ? theme.default_preview[num] : url_for(`imgs/preview/${theme.default_preview[num]}`)) %>" alt="<%= item.title %>">
+                    <% 
+                        var num;
+                        if (typeof previewPool !== 'undefined' && previewPool.length > 0 && typeof previewAssignIndex !== 'undefined') {
+                            num = previewAssignIndex % previewPool.length;
+                        } else if (typeof theme.default_preview !== 'undefined' && theme.default_preview.length > 0) {
+                            num = Math.floor(Math.random() * theme.default_preview.length);
+                        } else {
+                            num = 0;
+                        }
+                        var previewSrcMobile = item.preview ? item.preview : (/(https?:)?\/\//.test((typeof previewPool !== 'undefined' && previewPool.length > 0) ? previewPool[num] : theme.default_preview[num]) ? ((typeof previewPool !== 'undefined' && previewPool.length > 0) ? previewPool[num] : theme.default_preview[num]) : url_for(`imgs/preview/${(typeof previewPool !== 'undefined' && previewPool.length > 0) ? previewPool[num] : theme.default_preview[num]}`));
+                    %>
+                    <img src="<%- previewSrcMobile %>" alt="<%= item.title %>">
                 </a>
             </p>
         </div>
