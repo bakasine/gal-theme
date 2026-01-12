@@ -193,6 +193,11 @@ ul.pills-gal {
   background-color: $sidebar-tab-tags-7-bg-color;
 }
 
+#sidebar-pixiv {
+  .iframe-wrap { width: 100%; margin: 0 auto; }
+  iframe { width: 100%; height: auto; aspect-ratio: 240 / 380; display: block; border: 0; }
+}
+
 #sidebar-recent_comments {
   .author-avatar .avatar {
     border-radius: 50%;

@@ -1,6 +1,9 @@
 <aside class="col-md-4 gal-left" id="sidebar">
     <%- partial('_widget/search') %>
     <%- partial('_widget/author') %>
+    <% if (theme.sidebar.pixiv) { %>
+    <%- partial('_widget/pixiv_iframe') %>
+    <% } %>
     <% if(theme.sidebar.recent_comments) { %>
     <%- partial('_widget/recent_comments') %>
     <% } %>
