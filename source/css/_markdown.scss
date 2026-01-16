@@ -1,17 +1,22 @@
 // Markdown styling: headings, paragraphs, lists, code, blockquotes, tables, images
 
- .content-article,
- .article .content-article,
- .article-body .content-article,
- .article-content,
- .post-content,
- .markdown-body {
+.content-article,
+.article .content-article,
+.article-body .content-article,
+.article-content,
+.post-content,
+.markdown-body {
   // base text
   line-height: 1.75;
   color: $body-color;
   font-size: 16px;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
     margin-top: 1.6em;
     margin-bottom: 0.6em;
     font-weight: 600;
@@ -25,18 +30,21 @@
   a {
     color: $link-color;
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+&:hover {
+    text-decoration: underline;
+  }
   }
 
   blockquote {
     margin: 0 0 1em;
     padding: 0.6em 1em;
     color: lighten($body-color, 12%);
-    background: rgba(0,0,0,0.03);
-    border-left: 4px solid rgba(0,0,0,0.08);
+    background: rgba(0, 0, 0, 0.03);
+      border-left: 4px solid rgba(0, 0, 0, 0.08);
   }
 
-  pre, code {
+                pre,
+                code {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 
@@ -52,13 +60,18 @@
   }
 
   code {
-    background: rgba(27,31,35,0.05);
+    background: rgba(255, 230, 230, 0.4);
+      /* Softer reddish background */
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-size: 0.95em;
+    color: #e96900;
+      /* Vibrant orange for visibility */
+      font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 
-  table {
+                // Use a more specific selector or negation to avoid affecting code blocks
+                table:not(.highlight table) {
     width: 100%;
     margin: 0 0 1em;
     border-collapse: separate;
@@ -68,19 +81,20 @@
     // responsive wrapper handled by theme; ensure scroll if needed
     max-width: 100%;
 
-    th, td {
+    th,
+      td {
       padding: 0.75em 1em;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       color: $content-article-color;
       vertical-align: top;
     }
 
     thead th {
-      background: rgba(0,0,0,0.03);
+      background: rgba(0, 0, 0, 0.03);
       font-weight: 600;
       color: $body-color;
       text-align: left;
-      border-bottom: 2px solid rgba(0,0,0,0.08);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.08);
     }
 
     /* Remove harsh zebra; use subtle hover highlight */
@@ -90,14 +104,25 @@
     }
 
     tbody tr:hover {
-      background: rgba(0,0,0,0.03);
+      background: rgba(0, 0, 0, 0.03);
     }
 
     /* Rounded corners for top/bottom rows */
-    thead th:first-child { border-top-left-radius: 6px; }
-    thead th:last-child { border-top-right-radius: 6px; }
-    tbody tr:last-child td:first-child { border-bottom-left-radius: 6px; }
-    tbody tr:last-child td:last-child { border-bottom-right-radius: 6px; }
+                                thead th:first-child {
+                                  border-top-left-radius: 6px;
+                                }
+                
+                                thead th:last-child {
+                                  border-top-right-radius: 6px;
+                                }
+                
+                                tbody tr:last-child td:first-child {
+                                  border-bottom-left-radius: 6px;
+                                }
+                
+                                tbody tr:last-child td:last-child {
+                                  border-bottom-right-radius: 6px;
+                                }
 
     /* Make tables scroll horizontally on small screens without breaking layout */
     &.markdown-table-responsive {
@@ -115,85 +140,254 @@
     margin: 0.6em 0;
   }
 
-  ul, ol {
+                ul,
+                ol {
     margin: 0 0 1em 1.25em;
   }
 
-  // Enhanced list styles
-  ul {
-    list-style: none;
+                /* 
+                                                                                                                                                     * Enhanced List Styles
+                                                                                                                                                     * Redesigned for a cleaner, premium look
+                                                                                                                                                     */
+        
+                ul,
+                ol {
+                  margin: 1em 0 1.5em 1.5em;
     padding-left: 0;
   }
 
-  ul > li {
+                // Generic List Items (Bold by default)
+                ul>li,
+                ol>li {
     position: relative;
-    padding-left: 1.6em;
-    margin: 0.45em 0;
+    margin: 0.8em 0;
+      font-weight: 600;
+      /* Requested bold default */
+      color: $body-color;
+      transition: all 0.2s ease;
+    
+      &:hover {
+        color: lighten($body-color, 10%);
+      }
   }
 
-  ul > li:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.7em;
-    width: 0.45em;
-    height: 0.45em;
-    background: $link-color;
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.02) inset;
+                // Unordered List (UL)
+                ul {
+                  list-style: none;
+                }
+        
+                ul>li {
+                  padding-left: 1.5em;
+        
+                  &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+      top: 0.6em;
+        width: 0.4em;
+        height: 0.4em;
+        background: $white;
+        border: 2px solid $link-color;
+        border-radius: 50%;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+                                &:hover:before {
+                                  background: $link-color;
+                                  transform: scale(1.2);
+                                }
   }
 
-  /* nested unordered list: smaller bullets */
-  ul ul > li:before {
-    width: 0.32em;
-    height: 0.32em;
-    top: 0.7em;
-    background: lighten($link-color, 10%);
-  }
-
+                ul ul>li:before {
+                  width: 0.35em;
+                  height: 0.35em;
+                  border-color: lighten($link-color, 15%);
+                }
+        
+                // Ordered List (OL) - Redesigned v3 (Dot + Color Change)
   ol {
     counter-reset: gal-ol-counter;
-    padding-left: 0;
+    list-style: none;
   }
 
-  ol > li {
+                ol>li {
+                  padding-left: 2.5em;
     counter-increment: gal-ol-counter;
-    position: relative;
-    padding-left: 3.2em; /* more space so number pill isn't at the edge */
-    margin: 0.45em 0;
+&:hover {
+    transform: translateX(4px);
+  }
   }
 
-  ol > li:before {
-    content: counter(gal-ol-counter);
+                ol>li:before {
+                  // Content: number + dot
+                  content: counter(gal-ol-counter) ".";
     position: absolute;
-    left: 0.4em; /* nudge right from the edge */
-    top: 50%;
-    transform: translateY(-50%);
-    color: $link-color;
+    left: 0;
+      top: 0;
+    
+      width: 2.5em;
+    
+      // Fix Alignment: Match text exactly
+      height: auto;
+      line-height: 1.75; // Match paragraph line-height
+    
+      text-align: left;
+    
+      // Style: Clean, dark grey/purple
+      color: #6b69d6;
+      font-family: $body-font;
+      font-size: 1.1em; // Slightly smaller to align better with text baseline
+      font-weight: 800;
+      opacity: 1;
+    
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      text-shadow: none;
+    
+      transition: all 0.3s ease;
+    }
+    
+    ol>li:hover:before {
+      color: darken(#6b69d6, 10%);
+      transform: translateX(-2px);
+    }
+    
+    // Nested OL
+    ol ol>li:before {
+      font-size: 1em;
     font-weight: 700;
-    font-size: 0.95em;
-    background: transparent; /* blend into base background */
-    padding: 0.08em 0.5em;
-    border-radius: 6px;
-    box-shadow: none;
-  }
+    opacity: 0.8;
+    }
+    
+    // Override for .highlight (Code Blocks) - V6 Beautification
+    .highlight {
+      background: #282c34 !important;
+      border-radius: 8px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+      margin: 2em 0 !important; // More vertical separation
+      padding-top: 50px !important; // Plenty of space for buttons
+      padding-bottom: 20px !important; // Comfortable bottom buffer
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.3) !important;
+    
+      overflow: visible !important;
+    
+      // Use pseudo-element to create Mac-style window controls
+      &:before {
+        content: " ";
+        position: absolute;
+        top: 15px !important; // Slightly lower
+        left: 15px !important;
+        margin: 0 !important; // Reset margin to avoid conflicts
+        width: 12px;
+        height: 12px;
+        background: #fc625d; // Red
+        border-radius: 50%;
+        box-shadow:
+          20px 0 0 #fdbc40, // Yellow
+          40px 0 0 #35cd4b; // Green
+        z-index: 10;
+      }
+    
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+    
+      li {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        font-weight: normal !important;
+    
+        &:before {
+          content: none !important;
+          display: none !important;
+        }
+    
+        &:hover {
+          transform: none !important;
+          background: transparent !important;
+        }
+      }
+    
+      // Fix table inconsistency inside highlight
+      table {
+        margin: 0;
+        width: auto !important;
+        border: none !important;
+        background: transparent !important;
+        overflow: auto !important;
+        display: block !important; // Ensure table scrolls if too wide
+    
+        tr,
+        td,
+        th {
+          background: transparent !important;
+          border: none !important;
+          padding: 0;
+        }
+    
+        tr:hover {
+          background: transparent !important;
+        }
+      }
+    
+      .gutter {
+        color: rgba(255, 255, 255, 0.4) !important;
+        padding: 0 15px !important;
+        text-align: right;
+        border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: rgba(0, 0, 0, 0.2) !important;
+        vertical-align: top;
+      }
+    
+      .code {
+        padding: 0 15px !important;
+        vertical-align: top;
+        color: #abb2bf; // Ensure default text color for code
+      }
+    
+      pre {
+        background: transparent !important; // Inherit from .highlight
+        margin: 0 !important;
+        padding: 0 !important;
+        color: inherit;
+        border: none;
+      }
 
-  /* nested ordered lists: smaller pill */
-  ol ol > li:before {
-    font-size: 0.85em;
-    padding: 0.06em 0.38em;
-    border-radius: 5px;
+                                .btn-copy {
+                                  top: 6px !important;
+                                  right: 6px !important;
+                                  border-radius: 4px;
+                                  background: rgba(255, 255, 255, 0.1) !important;
+                                  color: #fff !important;
+                                  border: none !important;
+                
+                                  &:hover {
+                                    background: rgba(255, 255, 255, 0.2) !important;
+                                  }
+                                }
   }
 
   /* ensure content area has a little inner padding so list numbers never touch rounded container edges */
   .content-article {
     padding-left: 1.2em;
   }
-  
+
   // responsive tweaks
   @media (max-width: 768px) {
     font-size: 15px;
-    pre { font-size: 12px; }
+pre {
+    font-size: 12px;
+  }
   }
 
 }
